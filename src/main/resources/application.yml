@@ -1,0 +1,34 @@
+# (default) configuration
+#===========================
+# Common application properties https://docs.spring.io/spring-boot/docs/2.2.x-SNAPSHOT/reference/htmlsingle/#common-application-properties
+spring:
+  mvc:
+    throw-exception-if-no-handler-found: true
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate.ddl-auto: create
+    open-in-view: false
+    database: mysql
+    properties.hibernate:
+      generate_statistics: true
+      dialect: org.hibernate.dialect.MySQL57Dialect
+      hbm2ddl.delimiter: ;
+  datasource:
+    url: jdbc:mysql://localhost:3306/demo?useTimezone=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false
+    username: root
+    password:
+    initialization-mode: never  # JPA initialization should not be used if Hibernate is going to drop/create the tables via ddl-auto
+
+# LOGGING
+# https://docs.spring.io/spring-boot/docs/2.2.x-SNAPSHOT/reference/htmlsingle/#boot-features-logging
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+    com.example.demo: DEBUG
+
+# https://docs.spring.io/spring-boot/docs/2.2.x-SNAPSHOT/reference/htmlsingle/#production-ready-endpoints
+management:
+  endpoints:
+    enabled-by-default: true
