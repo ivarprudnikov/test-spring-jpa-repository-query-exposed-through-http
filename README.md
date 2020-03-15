@@ -1,5 +1,7 @@
 # About
 
+[![Build Status](https://travis-ci.org/ivarprudnikov/test-spring-jpa-repository-query-exposed-through-http.svg?branch=master)](https://travis-ci.org/ivarprudnikov/test-spring-jpa-repository-query-exposed-through-http)
+
 Example dealing with custom native query in JPA repository
 
 Before running locally:
