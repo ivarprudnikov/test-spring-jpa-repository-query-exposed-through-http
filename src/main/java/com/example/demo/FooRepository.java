@@ -14,7 +14,7 @@ public interface FooRepository extends JpaRepository<FooEntity, Long> {
      * @param id Long
      * @return Optional<ProjectedFooResult>
      */
-    @Query(nativeQuery = true, value = "SELECT f.name as name, count(b.id) as barCount FROM foo f, bar b WHERE f.id = :id AND b.foo_id = :id")
+    @Query(nativeQuery = true, value = "SELECT f.name as name, count(b.id) as barCount FROM foo f LEFT JOIN bar b ON b.foo_id = f.id WHERE f.id = :id")
     Optional<ProjectedFooResult> getByIdToProjected(Long id);
 }
 
